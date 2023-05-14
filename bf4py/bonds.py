@@ -45,3 +45,34 @@ class Bonds():
         data = self.connector.data_request('master_data_bond', params)
 
         return data
+
+    def bid_ask_latest(self, isin: str = None, mic: str = None):
+        """
+        Returns all information about given derivative ISIN.
+
+        Parameters
+        ----------
+        isin : str
+            ISIN ov valid derivative.
+
+        Returns
+        -------
+        data : TYPE
+            Dict with information.
+
+        """
+        if isin is None:
+            isin = self.default_isin
+        assert isin is not None, 'No ISIN given'
+        if mic is None:
+            mic = self.default_mic
+        assert mic is not None, 'No mic (Exchange) given'
+
+        params = {'isin': isin,
+                  'mic': mic}
+
+        #data = self.connector.data_request('performance', params)
+        #data = self.connector.data_request('interest_rate_widget', params)
+        data = self.connector.data_request('quote_box/single', params)
+
+        return data
