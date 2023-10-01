@@ -26,4 +26,4 @@ class BF4Py():
         self.derivatives = Derivatives(self.connector, self.default_isin)
         self.general = General(self.connector, self.default_isin)
         self.live_data = LiveData(self.connector, self.default_isin)
-        self.bonds = Bonds(self.connector, self.default_isin, self.default_mic)
+        self.bonds = Bonds(self.connector, self.default_isin)

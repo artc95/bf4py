@@ -8,7 +8,7 @@ from .connector import BF4PyConnector
 
 
 class Bonds():
-    def __init__(self, connector: BF4PyConnector = None, default_isin=None, default_mic='XETR'):
+    def __init__(self, connector: BF4PyConnector = None, default_isin=None, default_mic='XFRA'):
         self.default_isin = default_isin
         self.default_mic = default_mic
 
