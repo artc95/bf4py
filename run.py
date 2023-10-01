@@ -1,5 +1,6 @@
 from bf4py import BF4Py
 import csv
+from datetime import datetime
 import pandas as pd
 import logging
 
@@ -9,15 +10,15 @@ logging.basicConfig(level=logging.INFO,
                     datefmt='%Y%m%d %H:%M:%S')
 
 
-def main(degiro_csv: str, output_name: str):
+def main(degiro_csv: str, output_name: str, sell_date_str: str):
     """
-    TODO: get latest price
-    TODO: get company details - industry, latest news
     TODO: calculate profit based on price, coupon and maturity e.g. AT0000383864
     TODO: from a selection of bonds with their specifics, input an end date, calculate bond with highest profit?
+    TODO: get company details - industry, latest news
     """
     isin_list = extract_csv_isin(degiro_csv)
     specs_list = list_key_specs(isin_list)
+    metrics_list = calculate_metrics(specs_list, sell_date_str)
     csv_key_specs(specs_list, output_name)
 
 
@@ -94,6 +95,24 @@ def extract_key_specs(data: dict):
     return key_specs
 
 
+def calculate_metrics(specs_list: list, sell_date_str: str):
+    date_str_format = '%Y-%m-%d'
+    maturity_dates = []
+    for bond in specs_list:
+        """bond e.g.
+        {'ISIN': 'XS1218821756', 'issuer': 'ABN AMRO Bank N.V.', 'coupon_%': 1.0, 'last_price': 95.16, 'maturity_date': '2025-04-16', 'website_url': 'https://www.boerse-frankfurt.de/bond/XS1218821756'}  # noqa
+        """
+        if isinstance(bond['maturity_date'], str):
+            maturity_date_dt = datetime.strptime(bond['maturity_date'], date_str_format)
+        else:
+            # maturity_date empty (a.k.a. not-a-number nan, float type) when e.g. bond is perpetual
+            maturity_date_dt = sell_date_str
+
+        maturity_dates.append(maturity_date_dt)
+
+    return maturity_dates
+
+
 def csv_key_specs(specs_list: list, output_name: str):
     """sample list of specs:
     [{'ISIN': 'IE00B6X95T99', 'coupon_%': 3.4, 'maturity_date': '2024-03-18', 'website_url': 'https://www.boerse-frankfurt.de/bond/IE00B6X95T99'}, # noqa
@@ -105,4 +124,4 @@ def csv_key_specs(specs_list: list, output_name: str):
     df.to_csv(f'{output_name}.csv', index=False)
 
 
-main('Book1.csv', 'degiro_bonds')
+# main('Book1.csv', 'degiro_bonds', '2024-10-01')
