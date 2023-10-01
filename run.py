@@ -10,16 +10,15 @@ logging.basicConfig(level=logging.INFO,
                     datefmt='%Y%m%d %H:%M:%S')
 
 
-def main(degiro_csv: str, output_name: str, sell_date_str: str):
+def main(degiro_csv: str, output_name: str,
+         buy_date_str: str, sell_date_str: str, nominal_value: int):
     """
-    TODO: calculate profit based on price, coupon and maturity e.g. AT0000383864
-    TODO: from a selection of bonds with their specifics, input an end date, calculate bond with highest profit?
     TODO: get company details - industry, latest news
     """
     isin_list = extract_csv_isin(degiro_csv)
     specs_list = list_key_specs(isin_list)
-    metrics_list = calculate_metrics(specs_list, sell_date_str)
-    csv_key_specs(specs_list, output_name)
+    metrics_list = calculate_metrics(specs_list, buy_date_str, sell_date_str, nominal_value)
+    csv_key_specs(metrics_list, output_name)
 
 
 def extract_csv_isin(filename: str):
@@ -70,6 +69,9 @@ def get_bond_data(bf4py, isin: str):
     if not isinstance(instrument_data, dict):  # instrument data is dict, no dict means no data, proceed to next ISIN!
         return
 
+    if instrument_data['cupon'] is None:  # skip ISINs that do not have coupon rate
+        return
+
     bid_ask_latest = bf4py.bonds.bid_ask_latest(isin=isin)
     """
     {'isin': 'IE00B6X95T99', 'bidLimit': 0.0, 'askLimit': 0.0, 'bidSize': 0.0, 'askSize': 0.0, 'lastPrice': 100.26, 
@@ -97,8 +99,8 @@ def extract_key_specs(data: dict):
 
 def calculate_metrics(specs_list: list, buy_date_str: str, sell_date_str: str, nominal_value: int):
     date_str_format = '%Y-%m-%d'
-    buy_date_dt = datetime.strptime(buy_date_str, date_str_format)
-    sell_date_dt = datetime.strptime(sell_date_str, date_str_format)
+    buy_datetime = datetime.strptime(buy_date_str, date_str_format)
+    sell_datetime = datetime.strptime(sell_date_str, date_str_format)
 
     for bond in specs_list:
         """bond e.g.
@@ -107,16 +109,17 @@ def calculate_metrics(specs_list: list, buy_date_str: str, sell_date_str: str, n
         coupon_percent = bond['coupon_%']
 
         interest_annual = (nominal_value * coupon_percent / 100)
-        interest_buy_to_sell = (interest_annual / 365) * (sell_date_dt - buy_date_dt).days
+        interest_buy_to_sell = (interest_annual / 365) * (sell_datetime - buy_datetime).days
 
-        # maturity_date_dt could be empty (a.k.a. not-a-number nan, float type) when e.g. perpetual bond
+        # maturity_datetime could be empty (a.k.a. not-a-number nan, float type) when e.g. perpetual bond
         if isinstance(bond['maturity_date'], str):
-            maturity_date_dt = datetime.strptime(bond['maturity_date'], date_str_format)
-            interest_buy_to_maturity = (interest_annual / 365) * (maturity_date_dt - buy_date_dt).days
+            maturity_datetime = datetime.strptime(bond['maturity_date'], date_str_format)
+            interest_buy_to_maturity = (interest_annual / 365) * (maturity_datetime - buy_datetime).days
         else:
-            interest_buy_to_maturity = 0
+            interest_buy_to_maturity = interest_buy_to_sell
 
-
+        # TODO interest_since_last_payout = (interest_annual / 365) * (last_payout_datetime - buy_datetime).days
+        #   how to scrape last_payout_datetime from website?
 
         metrics = {
             'annual_interest': round(interest_annual, 2),
@@ -126,7 +129,6 @@ def calculate_metrics(specs_list: list, buy_date_str: str, sell_date_str: str, n
 
         bond.update(metrics)
 
-    print(specs_list)
     return specs_list
 
 
@@ -141,4 +143,5 @@ def csv_key_specs(specs_list: list, output_name: str):
     df.to_csv(f'{output_name}.csv', index=False)
 
 
-# main('Book1.csv', 'degiro_bonds', '2024-10-01')
+# main('Book1.csv', 'degiro_bonds',
+#      buy_date_str='2023-10-01', sell_date_str='2024-10-01', nominal_value=5000)
