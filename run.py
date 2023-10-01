@@ -43,18 +43,17 @@ def list_key_specs(isin_list: list):
     for isin in isin_list:
         try:
             data = get_bond_data(bf4py, isin)
+            specs = extract_key_specs(data)
+            specs_list.append(specs)
         except Exception as e:
             logging.info(f'run.list_key_specs - exception {e}')
-
-        specs = extract_key_specs(data)
-        specs_list.append(specs)
 
     logging.info(f'run.list_key_specs - last item is {specs_list[-1]}')
     return specs_list
 
 
 def get_bond_data(bf4py, isin: str):
-    instrument_data = bf4py.bonds.instrument_data(isin=isin)
+    instrument_data = bf4py.bonds.bond_data(isin=isin)
     """sample dict of data:
         {'isin': 'IE00B6X95T99', 
         'type': {'originalValue': '220', 'translations': {'de': 'Währungsanleihen', 'en': 'Currency bonds'}}, 
