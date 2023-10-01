@@ -1,4 +1,4 @@
-ISIN,issuer,coupon_%,last_price,maturity_date,website_url
-DE0005229942,Bertelsmann SE & Co. KGaA,15.0,244.0,,https://www.boerse-frankfurt.de/bond/DE0005229942
-FR0000140014,Renault S.A.,12.0043,270.0,,https://www.boerse-frankfurt.de/bond/FR0000140014
-LV0000802452,Mogo A.S.,11.0,100.0,2024-03-31,https://www.boerse-frankfurt.de/bond/LV0000802452
+ISIN,issuer,coupon_%,last_price,maturity_date,website_url,annual_interest,interest_buy_to_sell,interest_buy_to_maturity
+DE0005229942,Bertelsmann SE & Co. KGaA,15.0,244.0,,https://www.boerse-frankfurt.de/bond/DE0005229942,15.00,15.04,0
+FR0000140014,Renault S.A.,12.0043,270.0,,https://www.boerse-frankfurt.de/bond/FR0000140014,12.00,12.04,0
+LV0000802452,Mogo A.S.,11.0,100.0,2024-03-31,https://www.boerse-frankfurt.de/bond/LV0000802452,11.00,11.03,5.48

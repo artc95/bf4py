@@ -16,9 +16,14 @@ def test_list_key_specs():
 # TO RUN: pytest -s run_test.py::test_calculate_metrics ('-s' flag, and fail the test to display logging)
 def test_calculate_metrics():
     df = pd.read_csv('run_test.csv')
-    specs_list_of_dicts = df.to_dict('records')
 
-    actual_metrics_list = run.calculate_metrics(specs_list_of_dicts, '2024-10-01')
-    expected_metrics_list = ['2024-10-01', '2024-10-01', datetime(2024, 3, 31)]
+    # create list of bond dictionaries (test_specs_list) but without metrics, to test metrics correctly calculated
+    metrics_columns = ['annual_interest', 'interest_buy_to_sell', 'interest_buy_to_maturity']
+    test_specs_list = df.drop(columns=metrics_columns).to_dict('records')
+
+    actual_metrics_list = run.calculate_metrics(test_specs_list,
+                                                buy_date_str='2023-10-01', sell_date_str='2024-10-01',
+                                                nominal_value=100)
+    expected_metrics_list = df.to_dict('records')  # list of bond dictionaries with metrics
 
     assert actual_metrics_list == expected_metrics_list

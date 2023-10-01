@@ -95,22 +95,39 @@ def extract_key_specs(data: dict):
     return key_specs
 
 
-def calculate_metrics(specs_list: list, sell_date_str: str):
+def calculate_metrics(specs_list: list, buy_date_str: str, sell_date_str: str, nominal_value: int):
     date_str_format = '%Y-%m-%d'
-    maturity_dates = []
+    buy_date_dt = datetime.strptime(buy_date_str, date_str_format)
+    sell_date_dt = datetime.strptime(sell_date_str, date_str_format)
+
     for bond in specs_list:
         """bond e.g.
         {'ISIN': 'XS1218821756', 'issuer': 'ABN AMRO Bank N.V.', 'coupon_%': 1.0, 'last_price': 95.16, 'maturity_date': '2025-04-16', 'website_url': 'https://www.boerse-frankfurt.de/bond/XS1218821756'}  # noqa
         """
+        coupon_percent = bond['coupon_%']
+
+        interest_annual = (nominal_value * coupon_percent / 100)
+        interest_buy_to_sell = (interest_annual / 365) * (sell_date_dt - buy_date_dt).days
+
+        # maturity_date_dt could be empty (a.k.a. not-a-number nan, float type) when e.g. perpetual bond
         if isinstance(bond['maturity_date'], str):
             maturity_date_dt = datetime.strptime(bond['maturity_date'], date_str_format)
+            interest_buy_to_maturity = (interest_annual / 365) * (maturity_date_dt - buy_date_dt).days
         else:
-            # maturity_date empty (a.k.a. not-a-number nan, float type) when e.g. bond is perpetual
-            maturity_date_dt = sell_date_str
+            interest_buy_to_maturity = 0
 
-        maturity_dates.append(maturity_date_dt)
 
-    return maturity_dates
+
+        metrics = {
+            'annual_interest': round(interest_annual, 2),
+            'interest_buy_to_sell': round(interest_buy_to_sell, 2),
+            'interest_buy_to_maturity': round(interest_buy_to_maturity, 2)
+        }
+
+        bond.update(metrics)
+
+    print(specs_list)
+    return specs_list
 
 
 def csv_key_specs(specs_list: list, output_name: str):
