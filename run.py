@@ -100,6 +100,7 @@ def csv_key_specs(specs_list: list, output_name: str):
     {'ISIN': 'XS0968913342', 'coupon_%': 5.125, 'maturity_date': None, 'website_url': 'https://www.boerse-frankfurt.de/bond/XS0968913342'}] # noqa
     """
     df = pd.DataFrame(specs_list)
+    df = df.sort_values(by=['coupon_%'], ascending=False)  # first row = highest coupon %
 
     df.to_csv(f'{output_name}.csv', index=False)
 
