@@ -34,6 +34,7 @@ class Bonds():
             isin = self.default_isin
         assert isin is not None, 'No ISIN given'
         if mic is None:
+            # can try mic = 'XETR'
             mic = self.default_mic
         assert mic is not None, 'No mic (Exchange) given'
 
@@ -167,6 +168,7 @@ class Bonds():
             isin = self.default_isin
         assert isin is not None, 'No ISIN given'
         if mic is None:
+            # can try mic = 'XETR'
             mic = self.default_mic
         assert mic is not None, 'No mic (Exchange) given'
 
