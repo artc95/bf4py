@@ -1,0 +1,61 @@
+ISIN,issuer,coupon_%,last_price,maturity_date,website_url,annual_interest,interest_buy_to_sell,interest_buy_to_maturity
+DE0005229942,Bertelsmann SE & Co. KGaA,15.0,267.2,,https://www.boerse-frankfurt.de/bond/DE0005229942,750.0,750.0,750.0
+DE000A2NBY22,ESPG AG,9.5,51.0,2026-10-01,https://www.boerse-frankfurt.de/bond/DE000A2NBY22,475.0,475.0,1058.01
+DE000A2NBZ21,SoWiTec group GmbH,8.0,83.5,2026-11-08,https://www.boerse-frankfurt.de/bond/DE000A2NBZ21,400.0,400.0,932.6
+DE000A2E4A94,BDT Media Automation GmbH,8.0,98.0,2024-07-14,https://www.boerse-frankfurt.de/bond/DE000A2E4A94,400.0,400.0,4.38
+IT0001086567,"Italien, Republik",7.25,108.3,2026-11-01,https://www.boerse-frankfurt.de/bond/IT0001086567,362.5,362.5,838.22
+IT0001174611,"Italien, Republik",6.5,109.55,2027-11-01,https://www.boerse-frankfurt.de/bond/IT0001174611,325.0,325.0,1076.51
+AT0000383864,"Österreich, Republik",6.25,109.41,2027-07-15,https://www.boerse-frankfurt.de/bond/AT0000383864,312.5,312.5,941.78
+IT0003256820,"Italien, Republik",5.75,113.89,2033-02-01,https://www.boerse-frankfurt.de/bond/IT0003256820,287.5,287.5,2463.84
+DE000A2YN2H9,Aves Schienenlogistik 1 GmbH & Co. KG,5.25,98.12,2024-09-15,https://www.boerse-frankfurt.de/bond/DE000A2YN2H9,262.5,262.5,48.18
+IT0001278511,"Italien, Republik",5.25,108.39,2029-11-01,https://www.boerse-frankfurt.de/bond/IT0001278511,262.5,262.5,1395.21
+AT0000A0DXC2,"Österreich, Republik",4.85,102.0,2026-03-15,https://www.boerse-frankfurt.de/bond/AT0000A0DXC2,242.5,242.5,407.27
+AT0000A0DXC2,"Österreich, Republik",4.85,102.0,2026-03-15,https://www.boerse-frankfurt.de/bond/AT0000A0DXC2,242.5,242.5,407.27
+IT0004889033,"Italien, Republik",4.75,104.86,2028-09-01,https://www.boerse-frankfurt.de/bond/IT0004889033,237.5,237.5,985.14
+IT0004923998,"Italien, Republik",4.75,104.69,2044-09-01,https://www.boerse-frankfurt.de/bond/IT0004923998,237.5,237.5,4787.74
+BE0002844257,Atenor S.A.,4.625,95.19,2028-04-05,https://www.boerse-frankfurt.de/bond/BE0002844257,231.25,231.25,864.81
+XS0188935174,AXA S.A.,4.5782,95.68,,https://www.boerse-frankfurt.de/bond/XS0188935174,228.91,228.91,228.91
+IT0005518128,"Italien, Republik",4.4,105.08,2033-05-01,https://www.boerse-frankfurt.de/bond/IT0005518128,220.0,220.0,1939.01
+GR0128014710,"Griechenland, Republik",4.3,100.0,2027-02-24,https://www.boerse-frankfurt.de/bond/GR0128014710,215.0,215.0,564.89
+GR0138015814,"Griechenland, Republik",4.2,102.19,2042-01-30,https://www.boerse-frankfurt.de/bond/GR0138015814,210.0,210.0,3689.67
+AT0000A04967,"Österreich, Republik",4.15,109.16,2037-03-15,https://www.boerse-frankfurt.de/bond/AT0000A04967,207.5,207.5,2632.69
+AT0000A04967,"Österreich, Republik",4.15,109.16,2037-03-15,https://www.boerse-frankfurt.de/bond/AT0000A04967,207.5,207.5,2632.69
+FR0010171975,"Frankreich, Republik",4.0,107.65,2055-04-25,https://www.boerse-frankfurt.de/bond/FR0010171975,200.0,200.0,6162.19
+IT0003934657,"Italien, Republik",4.0,100.55,2037-02-01,https://www.boerse-frankfurt.de/bond/IT0003934657,200.0,200.0,2514.52
+ES0000012L60,"Spanien, Königreich",3.9,103.03,2039-07-30,https://www.boerse-frankfurt.de/bond/ES0000012L60,195.0,195.0,2937.29
+XS1313004928,"Rumänien, Republik",3.875,84.5,2035-10-29,https://www.boerse-frankfurt.de/bond/XS1313004928,193.75,193.75,2191.23
+XS0207825364,AXA S.A.,3.75,94.0,,https://www.boerse-frankfurt.de/bond/XS0207825364,187.5,187.5,187.5
+XS0179060974,AXA S.A.,3.63,91.28,,https://www.boerse-frankfurt.de/bond/XS0179060974,181.5,181.5,181.5
+IT0005024234,"Italien, Republik",3.5,99.79,2030-03-01,https://www.boerse-frankfurt.de/bond/IT0005024234,175.0,175.0,987.67
+CH0031409177,BNG Bank N.V.,3.25,125.47,2037-06-29,https://www.boerse-frankfurt.de/bond/CH0031409177,162.5,162.5,2108.94
+DE000NLB8E26,Norddeutsche Landesbank -Girozentrale-,3.0,98.1,2024-12-23,https://www.boerse-frankfurt.de/bond/DE000NLB8E26,150.0,150.0,68.22
+FR0012395689,Crédit Agricole S.A.,3.0,99.29,2025-02-02,https://www.boerse-frankfurt.de/bond/FR0012395689,150.0,150.0,85.07
+IT0005321325,"Italien, Republik",2.95,87.3,2038-09-01,https://www.boerse-frankfurt.de/bond/IT0005321325,147.5,147.5,2087.63
+XS0203470157,AXA S.A.,2.923,91.209,,https://www.boerse-frankfurt.de/bond/XS0203470157,146.15,146.15,146.15
+IT0005340929,"Italien, Republik",2.8,97.36,2028-12-01,https://www.boerse-frankfurt.de/bond/IT0005340929,140.0,140.0,615.62
+IT0005217390,"Italien, Republik",2.8,70.98,2067-03-01,https://www.boerse-frankfurt.de/bond/IT0005217390,140.0,140.0,5973.59
+XS0249580357,NIBC Bank N.V.,2.728,75.5,,https://www.boerse-frankfurt.de/bond/XS0249580357,136.4,136.4,136.4
+IT0005162828,"Italien, Republik",2.7,76.57,2047-03-01,https://www.boerse-frankfurt.de/bond/IT0005162828,135.0,135.0,3058.4
+IT0005345183,"Italien, Republik",2.5,98.36,2025-11-15,https://www.boerse-frankfurt.de/bond/IT0005345183,125.0,125.0,168.84
+XS0211568331,Bank of Scotland PLC,2.5,83.0,2035-02-07,https://www.boerse-frankfurt.de/bond/XS0211568331,125.0,125.0,1323.29
+IT0005240350,"Italien, Republik",2.45,89.48,2033-09-01,https://www.boerse-frankfurt.de/bond/IT0005240350,122.5,122.5,1120.96
+AT0000A10683,"Österreich, Republik",2.4,94.54,2034-05-23,https://www.boerse-frankfurt.de/bond/AT0000A10683,120.0,120.0,1184.88
+FR0000572646,BNP Paribas S.A.,2.3928,93.05,,https://www.boerse-frankfurt.de/bond/FR0000572646,119.64,119.64,119.64
+XS1114159277,adidas AG,2.25,97.27,2026-10-08,https://www.boerse-frankfurt.de/bond/XS1114159277,112.5,112.5,252.74
+IT0005177909,"Italien, Republik",2.25,82.78,2036-09-01,https://www.boerse-frankfurt.de/bond/IT0005177909,112.5,112.5,1367.26
+AT0000A1XML2,"Österreich, Republik",2.1,72.73,2117-09-20,https://www.boerse-frankfurt.de/bond/AT0000A1XML2,105.0,105.0,9792.04
+IT0005370306,"Italien, Republik",2.1,97.77,2026-07-15,https://www.boerse-frankfurt.de/bond/IT0005370306,105.0,105.0,211.44
+IT0005274805,"Italien, Republik",2.05,95.94,2027-08-01,https://www.boerse-frankfurt.de/bond/IT0005274805,102.5,102.5,313.68
+XS1167667283,Volkswagen International Finance N.V.,1.625,89.71,2030-01-16,https://www.boerse-frankfurt.de/bond/XS1167667283,81.25,81.25,448.77
+IT0005090318,"Italien, Republik",1.5,97.8,2025-06-01,https://www.boerse-frankfurt.de/bond/IT0005090318,75.0,75.0,66.99
+AT0000A1K9F1,"Österreich, Republik",1.5,72.05,2047-02-20,https://www.boerse-frankfurt.de/bond/AT0000A1K9F1,75.0,75.0,1697.26
+DE000A169NC2,Mercedes-Benz Group AG,1.375,93.51,2028-05-11,https://www.boerse-frankfurt.de/bond/DE000A169NC2,68.75,68.75,263.89
+XS1309529680,BNG Bank N.V.,1.375,90.57,2030-10-21,https://www.boerse-frankfurt.de/bond/XS1309529680,68.75,68.75,432.09
+DE000A13SWG1,Deutsche Pfandbriefbank AG,1.25,79.46,2035-04-20,https://www.boerse-frankfurt.de/bond/DE000A13SWG1,62.5,62.5,673.97
+XS1382784509,Coöperatieve Rabobank U.A.,1.25,96.49,2026-03-23,https://www.boerse-frankfurt.de/bond/XS1382784509,62.5,62.5,106.34
+DE000BHY0GS9,Berlin Hyp AG,1.125,90.94,2027-10-25,https://www.boerse-frankfurt.de/bond/DE000BHY0GS9,56.25,56.25,185.24
+ES0211845310,Abertis Infraestructuras S.A.,1.0,93.79,2027-02-27,https://www.boerse-frankfurt.de/bond/ES0211845310,50.0,50.0,131.78
+XS1218821756,ABN AMRO Bank N.V.,1.0,97.47,2025-04-16,https://www.boerse-frankfurt.de/bond/XS1218821756,50.0,50.0,38.36
+FR0013284908,Arkéa Home Loans SFH S.A.,0.75,92.42,2027-10-05,https://www.boerse-frankfurt.de/bond/FR0013284908,37.5,37.5,121.44
+DE0001102390,"Deutschland, Bundesrepublik",0.5,96.255,2026-02-15,https://www.boerse-frankfurt.de/bond/DE0001102390,25.0,25.0,40.07
+XS1720933297,KNAB N.V.,0.375,98.8,2024-11-21,https://www.boerse-frankfurt.de/bond/XS1720933297,18.75,18.75,6.88

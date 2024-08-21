@@ -13,7 +13,17 @@ logging.basicConfig(level=logging.INFO,
 def main(degiro_csv: str, output_name: str,
          buy_date_str: str, sell_date_str: str, nominal_value: int):
     """
-    TODO: get company details - industry, latest news
+    TODO: filter for 90 < last_price < 110? maturity at least 1 year later?
+    TODO: filter out 'blacklist' of ISINs or companies, record reasons for review (e.g. wrong industry, bad reputation etc.)
+        e.g. DE000A2YN3Q8 "Deutsche Rohstoff has been producing oil and natural gas in the USA"
+        e.g. XS2558594391 "Republic of Hungary"
+        e.g. GR0133008210 (and everything Greece) "Griechenland, Republik"
+        e.g. ES0000095853, PTOTVMOE0000, FR0010891317  puny trade activity
+    TODO: calculate capitalgain+interest profitabiility among multiple bonds (those in favourites 'backlog')
+        e.g. compare ES00000122E5	Spanien, KÃ¶nigreich	4.65	101.87	30-07-25	https://www.boerse-frankfurt.de/bond/ES00000122E5	232.5	230.59	422.96
+        e.g. versus ES0000012932	Spanien, KÃ¶nigreich	4.2	99.52	31-01-37	https://www.boerse-frankfurt.de/bond/ES0000012932	210	208.27	2800.19
+        e.g. have a slider for date or something
+    TODO: get company details based on e.g. company name? what industry, latest Google news etc.
     """
     isin_list = extract_csv_isin(degiro_csv)
     specs_list = list_key_specs(isin_list)
@@ -143,5 +153,5 @@ def csv_key_specs(specs_list: list, output_name: str):
     df.to_csv(f'{output_name}.csv', index=False)
 
 
-# main('Book1.csv', 'degiro_bonds',
-#      buy_date_str='2023-10-01', sell_date_str='2024-10-01', nominal_value=5000)
+main('Book1.csv', 'degiro_bonds',
+     buy_date_str='2024-07-10', sell_date_str='2025-07-10', nominal_value=5000)
