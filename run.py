@@ -26,10 +26,10 @@ def extract_csv_isin(filename: str):
         csv_reader = csv.reader(csv_file, delimiter=',')
         isin_list = []
         for row in csv_reader:
-            if row[0] != 'KV':  # rows without 'KV' as first element, only contain bond name as first element
+            if row[1] == '':  # rows with ISIN also have a second not-empty Curency column
                 continue
 
-            isin = row[1][-12:]  # some values in 'ISIN' column have more than ISIN, e.g. 'OETM | AT0000A0DXC2'
+            isin = row[0][-12:]  # some values in 'ISIN' column have more than ISIN, e.g. 'OETM | AT0000A0DXC2'
             isin_list.append(isin)
 
     logging.info(f'run.extract_csv_isin - last isin in isin_list is {isin_list[-1]}')
